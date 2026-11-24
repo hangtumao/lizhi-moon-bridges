@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>鬼花园之荔湾湖</title><meta name="description" content="可切换昼暮夜的岭南微缩花园">
+<meta property="og:title" content="鬼花园之荔湾湖"><meta property="og:type" content="website">
+<meta property="og:description" content="从五湖鸟瞰到水榭、虹桥与画舫，打开就能游览。">
+<meta property="og:image" content="https://hangtumao.github.io/lizhi-moon-bridges/ghost-garden/preview.jpg"><meta property="og:url" content="https://hangtumao.github.io/lizhi-moon-bridges/ghost-garden/"><link rel="canonical" href="https://hangtumao.github.io/lizhi-moon-bridges/ghost-garden/">
+<style>html{background:#0d1120;color:#f0ead6;font:15px system-ui}body{margin:0;display:grid;min-height:100svh;place-items:center}figure{margin:0;text-align:center}img{display:block;width:min(100vw,1100px);max-height:79vh;object-fit:contain}figcaption{margin:14px 20px;color:#e5d8bf;letter-spacing:.11em}</style>
+</head><body><figure><img src="preview.jpg" alt="月夜中的荔湾湖微缩全景"><figcaption id="scene-status" aria-live="polite">正在打开三维花园…</figcaption></figure>
+<noscript><p>开启 JavaScript 后可切换光景和视角。</p></noscript>
+<script>
+(async()=>{let msg=document.getElementById('scene-status');
+try{
+ const resp=await fetch('./scene.html.gz',{credentials:'omit'});if(!resp.ok||!resp.body)throw Error('scene');
+ if(!('DecompressionStream'in window))throw Error('browser');
+ const html=await new Response(resp.body.pipeThrough(new DecompressionStream('gzip'))).text();
+ if(!html.startsWith('<!doctype html>'))throw Error('format');
+ document.open();document.write(html);document.close();
+}catch(e){msg.textContent='当前浏览器未能加载三维场景。可用新版 Chrome、Edge 或 Safari 打开。';}
+})();
+</script></body></html>
